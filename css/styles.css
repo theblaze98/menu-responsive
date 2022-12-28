@@ -1,0 +1,256 @@
+@charset "UTF-8";
+/* Aquí definimos las Custom properties */
+:root {
+  --tipo-principal: "Roboto", Arial, sans-serif;
+}
+
+/* Reseteamos los margin y paddings de todas las etiquetas */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  vertical-align: baseline;
+}
+
+/* Evitamos problemas con las imagenes */
+img,
+picture,
+video,
+iframe,
+figure {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+}
+
+/* Reseteamos los enlaces para funcionar como cajas... */
+a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+}
+
+/* ... excepto los que se encuentran en párrafos */
+p a {
+  display: inline;
+}
+
+/* Quitamos los puntos de los <li> */
+li {
+  list-style-type: none;
+}
+
+/* Configuramos anclas suaves */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Desactivamos estilos por defecto de las principales etiquetas de texto */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+strong,
+blockquote,
+i,
+b,
+u,
+em {
+  font-size: 1em;
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Evitamos problemas con los pseudoelementos de quotes */
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+/* Nivelamos problemas de tipografías y colocación de formularios */
+form,
+input,
+textarea,
+select,
+button,
+label {
+  font-family: inherit;
+  font-size: inherit;
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
+  background-color: transparent;
+  color: inherit;
+  display: block;
+  outline: none;
+}
+
+/* Reseteamos las tablas */
+table,
+tr,
+td {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Evitamos problemas con los SVG */
+svg {
+  width: 100%;
+  display: block;
+  fill: currentColor;
+}
+
+/* Configuramos la tipografía para toda la web */
+body {
+  min-height: 100vh;
+  font-size: 16px;
+  font-family: var(--tipo-principal);
+}
+
+:root {
+  --bg: #181818;
+  --blue: #6400ff;
+  --pink: #ef2fb1;
+  --salmon: #ff9199;
+  --dark-blue: #3a0467;
+  --white: #f4f4f4;
+  --black: #121212;
+}
+
+body {
+  background: var(--bg);
+  color: var(--white);
+}
+
+.wrap {
+  width: 100%;
+}
+
+.header {
+  width: 100%;
+  padding: 10px 30px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  transition: background ease 1s;
+}
+.header--scroll {
+  background: var(--dark-blue);
+}
+.header__logo {
+  flex-basis: 90px;
+}
+.header__nav {
+  height: 80%;
+}
+.header__ul {
+  display: flex;
+  height: 100%;
+}
+.header__li {
+  flex: 1;
+  padding: 10px 20px;
+  border-bottom: 2px solid transparent;
+  transition: border-bottom ease 0.4s;
+}
+.header__li:hover {
+  border-color: var(--blue);
+}
+.header__a {
+  line-height: 100%;
+  text-align: center;
+}
+.header__button {
+  width: 18px;
+  height: 18px;
+  font-size: 18px;
+  cursor: pointer;
+  display: none;
+}
+
+.main {
+  width: 100%;
+}
+
+.hero {
+  width: 100%;
+  height: calc(100vh + 20px);
+  background: url("../img/hero2.jpg");
+  background-size: cover;
+  display: flex;
+  justify-content: right;
+}
+.hero__welcome {
+  align-self: center;
+  flex-basis: 30%;
+  padding: 20px;
+}
+.hero__h2 {
+  font-size: 32px;
+  font-weight: 700;
+  background: linear-gradient(45deg, var(--blue) 20%, var(--pink) 40%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@media screen and (max-width: 800px) {
+  .header__nav {
+    width: 60%;
+    height: 100vh;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: var(--bg);
+    right: -100%;
+    transition: right ease 1s;
+  }
+  .header__nav--active {
+    right: 0;
+  }
+  .header__ul {
+    display: flex;
+    width: 60%;
+    height: auto;
+    margin: auto;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .header__li {
+    border: none;
+    border-right: 2px solid var(--blue);
+    transition: margin ease 0.4s;
+  }
+  .header__li:hover {
+    margin-right: 3px;
+  }
+  .header__a {
+    text-align: center;
+  }
+  .header__button {
+    width: 18px;
+    height: 18px;
+    font-size: 18px;
+    cursor: pointer;
+    display: block;
+  }
+  .header__button--close {
+    margin-bottom: 20px;
+  }
+}
